@@ -25,7 +25,7 @@ class IPtray(object):
         self.trayMenu = QMenu()
         self.trayMenu.addAction(self.actExit)
         self.tray.setContextMenu(self.trayMenu)
-        print("showing message")
+        # print("showing message")
         self.tray.showMessage("IP", "你的IP是" + self.ip)
         self.sub_setToolTip() #getIP运行比较慢, setToolTip放在后面.
         sys.exit(self.app.exec_())
@@ -43,14 +43,14 @@ class IPtray(object):
                 self.ip = s.getsockname()[0]
             finally:
                 s.close()
-                print("exit getIP")
+                # print("exit getIP")
             sleep(5)
             # self.Lock.release()
 
     def setToolTip(self):
         while 1:
             self.tray.setToolTip(self.ip)
-            print("exit setToopTip")
+            # print("exit setToopTip")
             sleep(5)
 
     def sub_getIP(self):
